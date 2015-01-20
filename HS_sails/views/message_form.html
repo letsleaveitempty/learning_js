@@ -1,0 +1,23 @@
+<form action="http://localhost:1337/messages" method="post">
+Title: <input type="string" name="title">
+<br>
+Text: <input type="text" name="body">
+<br>
+<input type="submit" value="Submit">
+</form>
+<script src="http://code.jquery.com/jquery-2.1.3.js">
+</script>
+
+<script>
+  var myJSONData = '{"title":"json title", "body":"jsbon body lallalal"}';
+
+  $.ajax({type: 'POST',
+          url: "http://localhost:1337/messages",
+          data: myJSONData,
+          success: function(data) {
+            alert("Posted successfully to the server");
+          }, error: function(err) {
+            alert(err.message);
+          }
+        });
+</script>
